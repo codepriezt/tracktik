@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test header component  return a string  form the document element for the toggle button  1`] = `<Fragment />`;

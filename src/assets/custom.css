@@ -1,0 +1,54 @@
+/* to make profle photo a perfect */
+
+.circle-div {
+  border-radius: 50%;
+ 
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 19% 81%;
+}
+
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+.link {
+  text-decoration: none !important ;
+}
+
+
+@media (max-width: 640px) { 
+    .hide{
+         display:none
+     }
+ }
+
+/* @media screen and (min-width:769px){ */
+    
+
+
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1) { 
+    .hide{
+         display:block !important;  
+      }
+     
+}
+
+/* ----------- Retina Screens ----------- */
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (min-resolution: 192dpi) { 
+    .hide{
+         display:block !important;  
+      }
+
+}

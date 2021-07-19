@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ScheduleList/> render the list of sites   1`] = `
+<Fragment>
+  <li
+    className="px-3 py-1.5  md:pl-8 lg:pl-8 border-b border-t border-gray-300"
+    onClick={[MockFunction]}
+  >
+    <div
+      className="grid grid-cols-2 link"
+    >
+      <div
+        className="grid items-center justify-center grid-cols-5 col-span-1 left md:grid-cols-6"
+      >
+        <div
+          className="flex items-center justify-center col-span-2 sm:h-14 sm:w-14 md:h-12 md:w-12 md:col-span-2"
+        >
+          <img
+            alt="Image"
+            className="w-12 h-12 sm:w-14 md:h-12 md:w-12 circle-div "
+            src="http://lorempixel.com/640/480/city"
+          />
+        </div>
+        <div
+          className="col-span-10 lg:-ml-28 site-detail md:col-span-3"
+        >
+          <div
+            className="text-sm text-black sm:text-base md:text-xl"
+          >
+            <p
+              className="block text-sm font-medium md:text-xs"
+            >
+              Toys Garage
+            </p>
+            <span
+              className="block text-xs"
+            >
+              2614 Kulas Locks New Shaun Arizona Malaysia
+            </span>
+            <span
+              className="block text-xs"
+            >
+              Brandon Heathcote 027-974-9814
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="flex items-center justify-end col-span-1 right"
+      >
+        <svg
+          className="w-5 h-5 text-black"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M9 5l7 7-7 7"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+          />
+        </svg>
+      </div>
+    </div>
+  </li>
+</Fragment>
+`;
