@@ -1,7 +1,10 @@
 
 Track Tik Test Project built With React and TypeScript
 
-[production-url]: https://www.tracktik.netlify.app
+# Production Url [![]](https://www.tracktik.netlify.app) 
+
+
+
 
 
 ## Features
@@ -9,7 +12,7 @@ Track Tik Test Project built With React and TypeScript
 * [Pagination](#Pagination)
 * [Search](#Search)
 * [Schedule Listing](#Schedule-Listing)
-* [[Single Schedule](#Single-Schedule)
+* [Single Schedule](#Single-Schedule)
 * [Authentication](#Authentication)
 * [Testing with jest and ezymn](#testing)
 
