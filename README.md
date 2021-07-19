@@ -1,10 +1,7 @@
 
 Track Tik Test Project built With React and TypeScript
 
-# Production Url [![]](https://www.tracktik.netlify.app) 
-
-
-
+Demo production url [here](https://tracktik.netlify.app) 
 
 
 ## Features
