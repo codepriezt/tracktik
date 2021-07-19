@@ -1,9 +1,13 @@
 import React , {FC , useState} from "react"
 import { useEffect } from "react"
-import { ISite, StoreContextType } from "../interface/sites"
+import { ISite, StoreContextType } from "../interface/interfaces"
 import { useProvider } from "../provider/store/store-context"
 import { IResponse } from "../services/schedule-service"
 
+
+/**
+     * navigation type on paginated button
+ */
 type navigateType = "prev" |"next"
 
 interface IPaginateProps{
@@ -12,7 +16,9 @@ interface IPaginateProps{
 }
 
 
-
+/**
+     * interface props  for data to be accepted by the component 
+ */
 export interface IPropsData{
     start:number
     end:number
@@ -22,16 +28,36 @@ export interface IPropsData{
     limit:number
 }
 
+
+
 interface IProps{
     data:IPropsData
 }
 
 
 const PaginateBox:FC<IProps> =(props) => {
+
+/**
+     * props to be passed down to the component, which has be structured according to the Iprops datatype
+ */
 const data = props.data
 
+
+/**
+     * store provider to expose methods and state data across all  childeren component 
+*/
 const store = useProvider()
 
+
+/**
+     * state maanagment variables
+     * loading  .. this is to detect when the component  is making an async request to the saerver to fetch data
+     * page ... the current page of rhe paginated data
+     * initialLoad ... this is to determine if the component has been rendered at all.. if true mean it has been rendered 
+     * prev page ... get the prev page data from the server
+     * next page ... get the next page data from the server
+     * values... this are core variables states that determines the functionlity of the pagination
+ */
 var page:number = store?.page ? store.page : 1
 
 const [loading , setLoading] = useState<boolean>(false)
@@ -46,8 +72,15 @@ const [values, setPaginate] = useState<IPropsData>({
        limit: 0,
        query:""
 })
+/** */
 
 
+
+/**
+ * 
+     * @param IPaginateProps .. this takes a type and value parameters 
+     * this methods determines the pagination functionality .. based on the params ...
+ */
 const paginate =async  ({type , value}:IPaginateProps)=>{
 
     
@@ -74,6 +107,8 @@ const paginate =async  ({type , value}:IPaginateProps)=>{
     }
     setLoading(false)
 }
+
+
 
 useEffect(() => {
    

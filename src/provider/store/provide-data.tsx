@@ -1,5 +1,5 @@
 import React, {useState ,useEffect , useReducer} from "react"
-import { IAuth, IClient  , ISite, ISiteRequest } from "../../interface/sites"
+import { IAuth, IClient  , ISite, ISiteRequest } from "../../interface/interfaces"
 import scheduleService, { IResponse } from "../../services/schedule-service"
 import { saveLocally } from "../../utilities/local-storage"
 import { utils } from "../../utilities/utils"

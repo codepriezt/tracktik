@@ -6,18 +6,18 @@ import { useProvideAuth } from "../provider/auth/provide-auth"
 const Header: FC =() => {
 
 /**
- * auth provider to update the loggedIn user and 
+     * auth provider to update the loggedIn user and 
  */
 const auth = useProvideAuth()
 
 
 /**
- * state manangement and methods to toogle elements on responsive screens...
- * user... authenticated loggedin user.. Iclient
- * isOpen .. this is to display and hide the user profile dropdown .. boolean
- * open .. this is to display the nav list on tablet or mobile screen
- * show .. toggle isOpen to true or false
- * slide ... toggle open to true of false
+      * state manangement and methods to toogle elements on responsive screens...
+        * user... authenticated loggedin user.. Iclient
+        * isOpen .. this is to display and hide the user profile dropdown .. boolean
+        * open .. this is to display the nav list on tablet or mobile screen
+        * show .. toggle isOpen to true or false
+        * slide ... toggle open to true of false
  */
 const [user, setUser] = useState<any>()
 const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -28,7 +28,7 @@ const slide = () => { open ? setOpen(false) : setOpen(true) }
 
 
 /**
- * Detect users screen at different breakpoint.
+      *  Detect users screen at different breakpoint.
  */
 const isDesktopOrLaptop = useMediaQuery({ query: '(min-device-width: 1224px)'})
 const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
@@ -36,7 +36,7 @@ const isTabletOrMobileDevice = useMediaQuery({query: '(max-device-width: 1224px)
 
 
 /**
- * loggedOut method.. this is to log a user out and remove all states persisited to local storage
+     * loggedOut method.. this is to log a user out and remove all states persisited to local storage
  */
 const logOut = (e: SyntheticEvent):void => {
     e.preventDefault()
@@ -59,7 +59,7 @@ return(
         <header className="fixed left-0 right-0 flex items-center justify-end w-full px-4 bg-white h-14 ">
             <div className="flex justify-end ">
                 <button onClick={show} className="z-10 justify-end w-12 h-12 overflow-hidden border-4 border-gray-400 rounded-full toggleButton realtive hover:border-gray-300 focus:border-gray-300 focus:outline-none ">
-                      <img src={user ?  user.logo : "https://source.unsplash.com/uJ8LNVCBjFQ/400x400"} style={{height:'50px'}}></img>
+                    <img src={user ? user.logo :"https://source.unsplash.com/uJ8LNVCBjFQ/400x400"  } style={{height:'50px'}}></img>
                 </button>
                
                 {isOpen ? (

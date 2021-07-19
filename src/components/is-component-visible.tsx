@@ -1,5 +1,11 @@
 import React, { useState, useEffect, useRef  } from 'react';
 
+
+/**
+ * 
+ * @param initialIsVisible 
+ * @returns ref 
+ */
 export default function useComponentVisible(initialIsVisible:boolean) {
     const [isComponentVisible, setIsComponentVisible] = useState(initialIsVisible);
     const ref = useRef < HTMLDivElement >(null);

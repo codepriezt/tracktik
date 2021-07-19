@@ -19,7 +19,6 @@ interface IEndPointSpec{
 interface IApiService<T , K>{
     sendGet({url, parameters}: IEndPointSpec):any;
     sendPost({ url, parameters }: IEndPointSpec):any;
-    sendPut({ url, parameters }: IEndPointSpec):Promise<any>;
     sendDelete({ url, parameters }: IEndPointSpec):Promise<any>;
     prepareResponse(request : K):Promise<T | string>
 }
@@ -28,8 +27,10 @@ interface IParams{
    [key : string] : any
 }
 
+
 /**
- * I created a api class handler that take  for axios , this is can be extendable for other http , tcp  or grpc protocol library.
+ * I created a api class handler that handles request for axios library , 
+ * this is can be extendable for other http , tcp  or grpc protocol library.
  */
 export class apiService implements IApiService<AxiosResponse , AxiosInstance>{
 
@@ -89,16 +90,13 @@ export class apiService implements IApiService<AxiosResponse , AxiosInstance>{
     }
 
 
+  
+
     /**
      * 
-     * @param url
-     * @param parameters
+     * @param param0 IEndPointSpec paramters
+     * @returns 
      */
-    sendPut({ url, parameters }: IEndPointSpec): any {
-
-    }
-
-
     sendPost({ url, parameters }: IEndPointSpec): any {
         let data = parameters ? parameters : {};
         //Set up this request

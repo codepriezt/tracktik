@@ -1,5 +1,4 @@
-import {IAuth, IClient} from "../interface/sites"
-import {Data} from "../dummy-data/data-site"
+import {IAuth, IClient} from "../interface/interfaces"
 import { apiService } from "./apiService"
 import { clients_url } from "../constants/apiConstants"
 import {utils } from "../utilities/utils"

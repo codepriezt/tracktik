@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from "react"
-import { IAuth, IClient, ISite } from "../../interface/sites"
+import { IAuth, IClient, ISite } from "../../interface/interfaces"
 import userService  from "../../services/user-service"
 import { saveLocally } from "../../utilities/local-storage"
 import { utils } from "../../utilities/utils"

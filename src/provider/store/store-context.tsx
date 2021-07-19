@@ -1,6 +1,6 @@
 import React, { useContext, createContext } from "react";
 import { useProvideData } from './provide-data'
-import { StoreContextType } from "../../interface/sites";
+import { StoreContextType } from "../../interface/interfaces";
 
 export const storeContext = createContext<StoreContextType | undefined>(undefined);
 

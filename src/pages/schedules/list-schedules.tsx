@@ -1,7 +1,6 @@
 import React, { FC, useState, useEffect, FormEvent, SyntheticEvent} from "react"
 import { useHistory } from 'react-router-dom';
 import ScheduleList from "../../components/schedule-list";
-import { ISite } from "../../interface/sites";
 import {  useProvider } from "../../provider/store/store-context";
 import SortData from "../../components/sort-box"
 import PaginateData, { IPropsData } from "../../components/paginate-box"
@@ -10,24 +9,51 @@ import  logo  from "../../assets/transaction.svg"
 
 
 const ListSchedules: FC= () => {
+
+
+ /** 
+         *  store provider... this is make use of the context api wrapper to make available methods and 
+         * data to children component
+*/
 const store = useProvider()
+
+
+/**
+          *   hooks to redirect to the edit component         
+ */
 const history = useHistory()
+
+
+/**
+         * responsive screen
+ */
 const { isDesktopOrLaptop, isTabletOrMobileDevice } = Responsive()
 
+
+
+/**
+          * state management variables
+          * global page .. the page number returned from the context api
+          * gloal limit... the limit number returned from the context api
+          * loading.. this check the state during aan appi request is being triggered 
+          * sites ...sample of Isite data 
+          * initialLaod .. this check when a component is first rendered..
+          * showPagination.. this tooggle the pagination container
+          * showSearch ... this toggle the search container
+          * query .. this binded on the input element .. to get the value on the search box
+          * paginated data... this set all the data props to be passed down to the paginate box of type IPaginateProps
+          * 
+ */
 var globalPage: number = store?.page ? store.page : 1
 var globalLimit: number = store?.limit ? store.limit : 10
-
-
 const [loading , setLoading] = useState<boolean>(false)
 const [page , setPage] = useState<number>(globalPage) 
 const [limit, setLimit] = useState<number>(globalLimit)
 const [sites , setSites] = useState<any>()     
 const [initialLoad , setInitialLoad] = useState<boolean>(true)
 const [showPagination, setPagination] = useState(false)
-const [showSearch, setSearch] = useState(false)  
-  
+const [showSearch, setSearch] = useState(false)   
 const [query, setQuery] = useState<string>("")
-
 const [paginatedData, SetPaginateData] = useState<IPropsData>({
         end:10,
         start:1,
@@ -37,7 +63,10 @@ const [paginatedData, SetPaginateData] = useState<IPropsData>({
 })
      
 
-
+/**
+          * search method.
+         * @param e 
+ */
 const search = async (e: SyntheticEvent) => {
    e.preventDefault()
         var update: IPropsData
@@ -65,7 +94,10 @@ const search = async (e: SyntheticEvent) => {
         }
 }
 
-
+/**
+           *  this handle the change event on the input element
+           * @param e 
+ */
 const handleChange = (e: FormEvent<HTMLInputElement>) => {
    e.preventDefault()
    setQuery(e.currentTarget.value)
@@ -79,6 +111,10 @@ const handleChange = (e: FormEvent<HTMLInputElement>) => {
 
 
 
+/**
+          * update state variables
+          * @param result 
+ */
 const updateState = (result: any) => {
        
         let total = result.lastPage * limit
@@ -100,12 +136,14 @@ const showSearching = () => { showSearch ? setSearch(false) : setSearch(true) }
        
 
 
+/**
+          * get sites from the server .. async request
+ */
 const getSites = async () => {  
   try{
         
         setLoading(true)
         let response = await store?.list({ page: page, limit: limit })
-        console.log(response)
         setSites(response.result)
         updateState(response)
         setInitialLoad(false)
@@ -115,7 +153,9 @@ const getSites = async () => {
     }
 }
 
-
+/***
+          * this redirects to the edit single component
+ */
 const trigger = (id:string) => {
         const url = `/schedule/${id}`
        return history.push(url)

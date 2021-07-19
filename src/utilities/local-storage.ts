@@ -1,4 +1,4 @@
-import { IClient, ISite } from "../interface/sites";
+import { IClient, ISite } from "../interface/interfaces";
 import { Encryption } from "./encrypt-decrypt";
 
 

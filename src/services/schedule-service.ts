@@ -1,4 +1,4 @@
-import { IClient, ISite, ISiteRequest} from "../interface/sites"
+import { IClient, ISite, ISiteRequest} from "../interface/interfaces"
 import {Data} from "../dummy-data/data-site"
 import {apiService} from "./apiService"
 import { sites_list_url, single_site_url, clients_url} from "../constants/apiConstants"

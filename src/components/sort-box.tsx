@@ -1,9 +1,13 @@
 import React, { FC,useState} from "react"
-import { sortType } from "../interface/sites"
+import { sortType } from "../interface/interfaces"
 
 
 const SortBox:FC =() => {
-
+/**
+     * state managment variables
+     * show .. this is to hide or show the sort container
+     * active ...toggle the active state , wheter old or new .. which also mean asc or desc 
+ */
 const [show , setShow] = useState(false)
 const [tab , setTab] = useState(-1)
 const [active , setActive] = useState({
@@ -11,13 +15,27 @@ const [active , setActive] = useState({
         new:false
  })
 
+/** */
 
+ /**
+      * this method toggle show to true or false
+  */
 const open = () =>{show? setShow(false): setShow(true)}
 
+
+/**
+     * this handles sorting of data in ascending and descending order.
+     * @param props sortType
+ */
 const sort = (props : sortType) =>{
      setActiveState(props)
 
 }
+
+/**
+      * this is to handle the toggle container
+      * @param props 
+ */
 
 const setActiveState = (props:sortType) => {
  switch (props) {

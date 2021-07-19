@@ -1,6 +1,6 @@
 import React, { useContext, createContext } from "react";
 import { useProvideAuth } from './provide-auth'
-import { AuthContextType } from "../../interface/sites";
+import { AuthContextType } from "../../interface/interfaces";
 
 export const authContext = createContext<AuthContextType | undefined>(undefined);
 

@@ -1,15 +1,35 @@
 import React,{FC ,useState, useEffect} from "react"
 import { useProvideData } from "../../provider/store/provide-data"
 import { useParams , Link} from "react-router-dom"
-
-import {ISite} from "../../interface/sites"
+import {ISite} from "../../interface/interfaces"
 
 const Edit:FC = () => {
+/**
+ * use params hooks .. this is to get the id from the params .
+ */
 let {id}:any = useParams()
+
+
+
+ /**
+     *  store provider... this is make use of the context api wrapper to make available methods and data to children component 
+*/
 const store = useProvideData()
+
+
+/**
+     * state managment variables 
+     * site .. single site of type ISite
+     * loading.. this is to determine when an api request is made to fetch site
+ */
 const [site , setSite] = useState<ISite>()
 const [loading , setLoading] = useState(true)
+/** */
 
+
+/**
+     * fetch a sindle site on component rendering 
+ */
 const fetchSingle = async () => {
         try{
 
@@ -23,25 +43,45 @@ const fetchSingle = async () => {
         }
 }
 
+
+/**
+     *
+     * @returns contact address .. cominiation of firstname , last name  and phonenumber
+*/
 const contactAddress = () => {
     let contact = site ? site.contacts.main : "not available"
           contact = typeof(contact) != "string" ? contact.firstName + " " + contact.lastName + " " + contact.phoneNumber :"0905783"
         return contact
 }
 
+
+
+/**
+     *
+     * @returns contact name.. combiniation of firstname , last name 
+*/
 const contactName = () => {
     let contact = site ? site.contacts.main : "not available"
     contact = typeof (contact) != "string" ? contact.firstName + " " + contact.lastName : "lastName"
     return contact
 }
 
+
+/**
+     *    
+     * @returns contact number 
+*/
 const contactNumber = () =>{
     let contact = site ? site.contacts.main : "not available"
     contact = typeof (contact) != "string" ? contact.phoneNumber : "009090234"
     return contact
 }
 
-    const siteAddress = () => {
+/**
+ * 
+ * @returns  site address ... combination of street , city , state , country
+ */
+const siteAddress = () => {
         let address = site ? site.address : "not available"
         address = typeof(address) != "string" ? address.street + " " + address.city + " " + address.state + " " + address.country:"address"
         return address 
