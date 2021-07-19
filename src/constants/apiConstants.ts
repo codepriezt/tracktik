@@ -34,7 +34,7 @@ let localUrl = "http://localhost:3000/";
 
 
 //prod baseurl
-let prodUrl = "https://server-json.netlify.app/";
+let prodUrl = "https://tracktik-challenge.staffr.com/";
 
 
 export let baseUrl = process.env.NODE_ENV == 'production' ? prodUrl : localUrl;
